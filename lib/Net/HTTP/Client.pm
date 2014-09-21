@@ -1,12 +1,12 @@
 package Net::HTTP::Client;
-
+$Net::HTTP::Client::VERSION = '0.011';
 =head1 NAME
 
 Net::HTTP::Client - A Not-quite-so-low-level HTTP connection (client)
 
 =head1 VERSION
 
-Version 0.01
+version 0.011
 
 =head1 SYNOPSIS
 
@@ -40,7 +40,13 @@ Version 0.01
 
 =head1 DESCRIPTION
 
-C<Net::HTTP::Client> provides a simple interface to L<Net::HTTP>, and is a sub-class of it.
+C<Net::HTTP::Client> provides a simple interface to L<Net::HTTP>, and is a
+sub-class of it.
+
+This was written because I wanted something that did less than what
+L<LWP::UserAgent> does when making requests.  Like L<LWP::UserAgent>, it
+returns an L<HTTP::Response> object, so you can handle the response just the
+same.
 
 =over 2
 
@@ -54,15 +60,13 @@ use HTTP::Response;
 
 use parent qw/Net::HTTP/;
 
-our $VERSION = '0.01';
-
 my $DEBUG = 0;
 my $used = 0;
 
 =item new(%options)
 
-The C<Net::HTTP::Client> constructor method takes the same options as L<Net::HTTP>, with the
-same requirements.
+The C<Net::HTTP::Client> constructor method takes the same options as
+L<Net::HTTP>, with the same requirements.
 
 =cut
 
@@ -74,12 +78,13 @@ sub new {
 =item request($method, $uri, @headers?, $content?)
 
 Sends a request with method C<$method> and path C<$uri>. Key-value pairs of
-C<@headers> and C<$content> are optional. If C<KeepAlive> is set at C<new()>,
-multiple calls to this will use the same connection. Otherwise, a new
-connection will be created automatically. In addition, a C<$uri> may contain a
-different host and port, in which case it will make a new connection. For
-convenience, if you don't wish to reuse connections, you may call this method
-directly without invoking C<new()> if C<$uri> contains a host.
+C<@headers> and C<$content> are optional.  If C<KeepAlive> is set at
+C<new()>, multiple calls to this will use the same connection.  Otherwise, a
+new connection will be created automatically.  In addition, a C<$uri> may
+contain a different host and port, in which case it will make a new
+connection.  For convenience, if you don't wish to reuse connections, you
+may call this method directly without invoking C<new()> if C<$uri> contains
+a host.
 
 Returns an L<HTTP::Response> object.
 
@@ -142,7 +147,7 @@ at your option, any later version of Perl 5 you may have available.
 
 L<Net::HTTP>
 
+L<LWP::UserAgent>
 =cut
 
 1;
-

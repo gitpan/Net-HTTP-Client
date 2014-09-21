@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-
+use 5.012000;
 
 use ExtUtils::MakeMaker ;
 
@@ -11,7 +11,7 @@ use ExtUtils::MakeMaker ;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "A Not-quite-so-low-level HTTP connection (client)",
-  "AUTHOR" => "Ashley Willis <ashley+perl\@laurelmail.net>",
+  "AUTHOR" => "Ashley Willis <ashley+perl\@gitable.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
   },
@@ -19,15 +19,31 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [],
   "LICENSE" => "perl",
   "NAME" => "Net::HTTP::Client",
-  "PREREQ_PM" => {},
-  "VERSION" => "0.001",
+  "PREREQ_PM" => {
+    "HTTP::Response" => 0,
+    "Net::HTTP" => 0,
+    "parent" => 0,
+    "warnings" => 0
+  },
+  "TEST_REQUIRES" => {
+    "Test::More" => 0,
+    "strict" => 0
+  },
+  "VERSION" => "0.011",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
 
-my %FallbackPrereqs = ();
+my %FallbackPrereqs = (
+  "HTTP::Response" => 0,
+  "Net::HTTP" => 0,
+  "Test::More" => 0,
+  "parent" => 0,
+  "strict" => 0,
+  "warnings" => 0
+);
 
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {

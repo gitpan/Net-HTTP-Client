@@ -1,15 +1,23 @@
 ---
 abstract: 'A Not-quite-so-low-level HTTP connection (client)'
 author:
-  - 'Ashley Willis <ashley+perl@laurelmail.net>'
-build_requires: {}
+  - 'Ashley Willis <ashley+perl@gitable.org>'
+build_requires:
+  Test::More: 0
+  strict: 0
 configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.140640'
+generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142060'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Net-HTTP-Client
-version: 0.001
+requires:
+  HTTP::Response: 0
+  Net::HTTP: 0
+  parent: 0
+  perl: v5.12.0
+  warnings: 0
+version: 0.011
