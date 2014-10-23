@@ -9,3 +9,6 @@ README
 dist.ini
 lib/Net/HTTP/Client.pm
 t/001_base.t
+t/002_client.t
+t/release-kwalitee.t
+t/release-pod-coverage.t

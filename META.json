@@ -19,23 +19,44 @@
             "ExtUtils::MakeMaker" : "0"
          }
       },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::Pod::Coverage" : "1.08"
+         }
+      },
       "runtime" : {
          "requires" : {
             "HTTP::Response" : "0",
             "Net::HTTP" : "0",
             "parent" : "0",
-            "perl" : "v5.12.0",
+            "perl" : "v5.10.0",
+            "strict" : "0",
             "warnings" : "0"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0",
-            "strict" : "0"
+            "Limper" : "0",
+            "POSIX" : "0",
+            "Test::More" : "0"
          }
       }
    },
+   "provides" : {
+      "Net::HTTP::Client" : {
+         "file" : "lib/Net/HTTP/Client.pm",
+         "version" : "0.012"
+      }
+   },
    "release_status" : "stable",
-   "version" : "0.011"
+   "resources" : {
+      "repository" : {
+         "type" : "git",
+         "url" : "https://gitable.org/ashley/net-http-client.git",
+         "web" : "https://gitable.org/ashley/net-http-client.git"
+      }
+   },
+   "version" : "0.012"
 }
 

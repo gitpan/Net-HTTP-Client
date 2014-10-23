@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use 5.012000;
+use 5.010000;
 
 use ExtUtils::MakeMaker ;
 
@@ -23,13 +23,15 @@ my %WriteMakefileArgs = (
     "HTTP::Response" => 0,
     "Net::HTTP" => 0,
     "parent" => 0,
+    "strict" => 0,
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "Test::More" => 0,
-    "strict" => 0
+    "Limper" => 0,
+    "POSIX" => 0,
+    "Test::More" => 0
   },
-  "VERSION" => "0.011",
+  "VERSION" => "0.012",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -38,7 +40,9 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "HTTP::Response" => 0,
+  "Limper" => 0,
   "Net::HTTP" => 0,
+  "POSIX" => 0,
   "Test::More" => 0,
   "parent" => 0,
   "strict" => 0,
